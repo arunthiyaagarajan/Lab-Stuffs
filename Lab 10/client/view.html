@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All transactions</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div ng-controller="MyController">
+        <section id="tableSection" class="container mt-5">
+            <table class="table table-striped">
+                <thead>
+                    <tr class="bg-success">
+                        <th scope="col" ng-click="setTrDate()">Service Date</th>
+                        <th scope="col" ng-click="setDob()">Delivery Date</th>
+                        <th scope="col" ng-click="setName()">Customer Name</th>
+                        <th scope="col" ng-click="setCur()">Amount of Service</th>
+                        <th scope="col" ng-click="setSt()">Service Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="data in datas | limitTo: limit | orderBy:order">
+                        <td scope="row">{{data.s_date | date:"dd/MM/yyyy"}}</td>
+                        <td>{{data.d_date | date:"dd/MM/yyyy"}}</td>
+                        <td>{{data.c_name}}</td>
+                        <td>{{data.amount | currency:"Rs."}}</td>
+                        <td>{{data.status | lowercase }}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+    </div>
+</body>
+
+</html>

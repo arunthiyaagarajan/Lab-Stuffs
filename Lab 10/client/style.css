@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+    border: 0;
+    padding: 0;
+}
+
+body {
+    background-color:#edf2f4;
+}
+
+#display {
+    margin-top: 25vh;
+}
+
+#buttons {
+    text-align: center;
+}
+
+#tableSection {
+    font-size: 1.1em;
+}
+
+#tableSection table {
+    background-color: #edf2f4;
+}
+
+#tableSection table, #tableSection td, #tableSection th{
+    border: 1px solid;
+}
+
+#tableSection th{
+    cursor: pointer;
+    color: white;
+    border-color: black;
+}
