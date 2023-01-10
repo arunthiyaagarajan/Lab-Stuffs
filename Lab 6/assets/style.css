@@ -1,0 +1,138 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary: #ffbf69;
+    --success: #00c500;
+    --danger: #d50000;
+    --bgcolor: #cbf3f0;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    background-color: #edf6f9;
+}
+
+.color-link {
+    padding-bottom: 0.5em;
+    text-align: right;
+}
+
+.color-link a {
+    text-decoration: none;
+    color: black;
+}
+
+.color-link a:hover {
+    text-decoration: underline;
+    color: #2ec4b6;
+}
+
+.form-content {
+    border-radius: 5px;
+    margin: 7vh 0;
+    width: 24rem;
+    padding: 1.5rem;
+    background-color: #fff0dc;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.form-content h2 {
+    background-color: #ffbf69;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    padding: 0.5rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+}
+
+.imp {
+    color: var(--danger);
+}
+
+.form-content label {
+    color: #5a5a5a;
+}
+
+.mt {
+    margin-top: 1.5rem;
+}
+
+.helper {
+    color: var(--danger);
+    font-size: 0.8rem;
+}
+
+#carBrand-helper {
+    color: var(--success);
+    font-size: 0.8rem;
+}
+
+input,
+select {
+    font-family: inherit;
+    font-size: inherit;
+    color: rgb(81, 81, 81);
+    width: 100%;
+    border: 1px solid rgba(90, 90, 90, 0.1);
+    background-color: #f5f5f5;
+    padding: 0.5rem;
+    margin: 0.5rem 0;
+    border-radius: 3px;
+}
+
+::placeholder {
+    color: #9696969e;
+}
+
+input,
+select:focus,
+input,
+select:active {
+    outline-color: var(--primary);
+    outline-offset: 2px 5px 2px;
+}
+
+.submit {
+    margin-top: 2rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: #2ec4b6;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    color: #fff;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.submit:hover {
+    background-color: #f5f5f5;
+    border: 1px solid rgba(53, 53, 53, 0.2);
+    color: #2ec4b6;
+    transition: 0.2s;
+
+}
+
+.imagechange {
+    margin-top: 1.5rem;
+    padding: 0.5rem;
+    width: 100%;
+    background-color: var(--primary);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 3px;
+    cursor: pointer;
+    color: #000;
+    font-family: inherit;
+    font-size: inherit;
+}
+
+.imagechange:hover {
+    background-color: #fbb150;
+    transition: 0.2s;
+}

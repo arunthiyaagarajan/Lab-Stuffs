@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Service</title>
+
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.3/angular.min.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
+    <script src="service.js"></script>
+
+</head>
+
+<body ng-app="service">
+    
+    <div class="content-box" ng-controller="serviceCtrl">
+
+        <h1 class="heading">Angular JS Filters</h1>
+
+        <div class="ip-form">
+            <div class="pd">
+                <label for="rowtodisplay">Row to Display: </label>
+                <input type="number" min="0" max="6" name="row" id="row" ng-model="rowlimit">
+            </div>
+            <div class="pd">
+                <label for="search">Search Name: </label>
+                <input type="text" placeholder="Search Customer Name" ng-model="search.name">
+            </div>
+        </div>
+
+        <div class="table">
+            <table>
+                <thead>
+                    <tr>
+                        <th ng-click="orderByMe('cid')">Customer ID <span>&#x25bc</span></th>
+                        <th ng-click="orderByMe('name')">Customer Name <span>&#x25bc</span></th>
+                        <th>Vehicle Type</th>
+                        <th>Brand</th>
+                        <th>Model</th>
+                        <th>Service Type</th>
+                        <th ng-click="orderByMe('sprice')">Service Price <span>&#x25bc</span></th>
+                        <th>Price(INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr ng-repeat="c in customers | limitTo:rowlimit | filter:search | orderBy:myOrderBy">
+                        <td>{{c.cid}}</td>
+                        <td>{{c.name | myfilter}}</td>
+                        <td>{{c.vtype}}</td>
+                        <td>{{c.brand | uppercase}}</td>
+                        <td>{{c.model}}</td>
+                        <td>{{c.stype}}</td>
+                        <td>{{c.sprice | number}}</td>
+                        <td>{{c.sprice | currency:'Rs.'}}</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</body>
+
+</html>

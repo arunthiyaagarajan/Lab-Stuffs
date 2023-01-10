@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Cookies</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+</head>
+
+<body>
+
+    <div class="form-content">
+
+        <div class="color-link">
+            <a href="./form_valid.html">Back To Home</a>
+        </div>
+
+        <h2>Change Background</h2>
+        
+        <select id="color" onchange="display()">
+            <option value="Select Color" selected disabled>Set BG Color</option>
+            <option value="#3C096C">Persian Indigo</option>
+            <option value="#006d77">Ming</option>
+            <option value="#2B2D42">Space Cadet</option>
+        </select>
+
+        <button id="bgimage" value="" class="imagechange" onclick="displayImage()">Set BG Image</button>
+
+    </div>
+
+    <script>
+        window.onload = function () {
+                if (document.cookie.length != 0) {
+                    var array = document.cookie.split("=");
+                    document.getElementById("color").value = array[1];
+                    document.body.style.backgroundColor = array[1];
+                    console.log(document.cookie)
+                }
+        }
+        function display() {
+                var value = document.getElementById("color").value;
+                if (value != "Select Color") {
+                    document.body.style.backgroundColor = value;
+                    document.cookie = "color=" + value;
+                }
+            }
+
+        function displayImage() {
+            document.body.style.background = "url('./assets/Island.jpg') no-repeat center";
+        }
+
+    </script>
+
+</body>
+
+</html>

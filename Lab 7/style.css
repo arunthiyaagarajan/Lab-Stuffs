@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --heading: #4a4e69;
+    --bgcolor: #f2e9e4;
+    --tablebg: #22223b;
+    --primary: #9a8c98;
+    --secondary: #c9ada7;
+}
+
+body {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    /* font-family: 'Montserrat', sans-serif; */
+    display: flex;
+    justify-content: center;
+    background-color: var(--bgcolor);
+}
+
+.content-box {
+    margin-top: 15vh;
+}
+
+.heading {
+    text-align: center;
+    padding: 0.7rem;
+    border-radius: 3px;
+    background-color: var(--heading);
+    color: var(--bgcolor);
+    margin-bottom: 5vh;
+}
+
+.ip-form {
+    display: flex;
+    justify-content: space-around;
+    background-color: var(--primary);
+    border-radius: 3px;
+    padding: 0.7em 0.5em;
+}
+
+input {
+    padding: 0.3em 1em;
+    border: 1px solid;
+    border-radius: 3px;
+}
+
+table,
+th,
+td,
+tr {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 0.5rem;
+}
+
+th {
+    background-color: var(--tablebg);
+    color: var(--bgcolor);
+}
+
+tr:nth-child(even) {
+    background-color: var(--secondary);
+}
+
+td:first-child {
+    color: var(--bgcolor);
+    background-color: var(--tablebg);
+    text-align: right;
+}
+
+.table {
+    margin-top: 2vh;
+}

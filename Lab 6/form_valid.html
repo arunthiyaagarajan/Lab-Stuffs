@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>B&W-Car Service</title>
+
+    <link rel="stylesheet" href="./assets/style.css">
+
+    <link rel="icon" type="image/x-icon" href="./assets/favicon-16x16.png">
+
+</head>
+<body>
+    
+    <div class="form-content">
+
+        <div class="color-link">
+            <a href="./bg-color.html">Settings</a>
+        </div>
+        
+        <h2>Hello <span id="myName">Buddy</span>!</h2>
+
+            <form action="./form_success.html" autocomplete="off" name="myform" onsubmit="set_get_Cookie()">
+                
+                <div class="mt">
+                    <label for="fullname">Full Name<span class="imp">*</span></label>
+                    <input type="text" name="fullname" id="fullname" title="Only Alpha-Characters Allowed" onchange="localstorage()" autofocus required>
+                    <span class="helper" id="fullname-helper"></span>
+                </div>
+                
+                <div class="mt">
+                    <label for="mobile">Mobile No.<span class="imp">*</span></label>
+                    <input type="tel" name="mobile" id="mobile" maxlength="10" title="Required Length: 10" pattern="[0-9]{10}" required>
+                    <span class="helper" id="mobile-helper"></span>
+                </div>                
+                
+                <div class="mt">
+                    <label for="email">Email<span class="imp">*</span></label>
+                    <input type="email" name="email" id="email" pattern="[a-z0-9._%+-]+@[mca]+[\.christuniversity]+[\.in]$" title="Format: your_name@mca.christuniversity.in" placeholder="eg: your_name@mca.christuniversity.in" required>
+                    <span class="helper" id="email-helper"></span>
+                </div>
+                
+                <div class="mt">
+                    <label for="password">Password<span class="imp">*</span></label>
+                    <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}" title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters" required>
+                    <span class="helper" id="password-helper"></span>
+                </div>
+                
+                <div class="mt">
+                    <label for="vehicle">Car Brand<span class="imp">*</span></label>
+                    <select name="brand" id="car-brand" title="Choose Your Brand" onchange="session()" required>
+                        <option value="0" selected disabled>Slect Your Car Brand</option>
+                        <option value="Audi">Audi</option>
+                        <option value="BMW">BMW</option>
+                        <option value="Citroen">Citroen</option>
+                        <option value="Hyundai">Hyundai</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Jaguar">Jaguar</option>
+                        <option value="Land Rover">Land Rover</option>
+                        <option value="Mercedes">Mercedes</option>
+                        <option value="Mini">Mini</option>
+                        <option value="Nissan">Nissan</option>
+                        <option value="Toyota">Toyota</option>
+                        <option value="Volvo">Volvo</option>
+                        <option value="Ford">Ford</option>
+                    </select>
+                    <span class="helper" id="carBrand-helper"></span>
+                </div>
+                
+                <div class="mt">
+                    <label for="model">Model<span class="imp">*</span></label>
+                    <input type="text" name="model" id="model" title="Enter Your Model" required>
+                    <span class="helper" id="model-helper"></span>
+                </div>
+                    
+                <button class="submit" type="submit">Register Service</button>
+                
+            </form>
+        </div>
+        
+        <script>
+            var fullname = document.getElementById('fullname');
+            var mobile = document.getElementById('mobile');
+            var email = document.getElementById('email');
+            var password = document.getElementById('password');
+            var carBrand = document.getElementById('car-brand');
+            var model = document.getElementById('model');
+
+            var fullnameHelp = document.getElementById('fullname-helper');
+            var mobileHelp = document.getElementById('mobile-helper');
+            var emailHelp = document.getElementById('email-helper');
+            var passwordHelp = document.getElementById('password-helper');
+            var modelHelp = document.getElementById('model-helper');
+
+            fullname.oninput = function () {
+                var spl = /^[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+                var letters = /[0-9]/g
+                if (fullname.value.match(letters)|| fullname.value.match(spl)) {
+                    nameLen = fullname.value.length
+                    fullname.value = fullname.value.slice(0, nameLen - 1)
+                }
+
+                var msg = ""
+                if (fullname.value.length < 2)
+                    msg += "Min. 2 Characters Required!"
+                fullnameHelp.innerHTML = msg
+
+                if (fullname.value.length >= 2) {
+                    fullname.style.outlineColor = "var(--success)"
+                    fullname.style.border = "1px solid var(--success)"
+                    return
+                }
+                fullname.style.outlineColor = "var(--danger)"
+                fullname.style.border = "1px solid var(--danger)"
+            }
+
+            function set_get_Cookie() {
+                var d = new Date();
+                d.setTime(d.getTime() + (1 * 60 * 500));
+                var expires = "expires=" + d.toUTCString();
+                document.cookie = "Full Name = " + fullname.value + ";" + expires + "; Path=/;";
+                document.cookie = "Mobile No = " + mobile.value + ";" + expires + "; Path=/;";
+                document.cookie = "Email = " + email.value + ";" + expires + "; Path=/;";
+                document.cookie = "Brand = " + carBrand.value + ";" + expires + "; Path=/;";
+                document.cookie = "Model = " + model.value + ";" + expires + "; Path=/;";
+
+                if (document.cookie.length != 0) {
+                    alert("Cookies:" + "\nFull Name = " + fullname.value + "\nMobile No = " + mobile.value + "\nEmail = " + email.value + "\nBrand = " + carBrand.value + "\nModel = " + model.value);
+                }
+                else {
+                    alert("Cookie not available :(");
+                }
+            }
+
+            function localstorage() {
+                var name = document.getElementById("fullname").value;
+
+                if (typeof (Storage) !== "undefined") {
+                    // Store
+                    localStorage.setItem("FullName", name);
+                    // Retrieve
+                    document.getElementById("myName").innerHTML = localStorage.getItem("FullName");
+                } else {
+                    document.getElementById("myName").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+            function session() {
+
+                if (typeof (Storage) !== "undefined") {
+                    // Store
+                    sessionStorage.setItem("carBrand", carBrand.value);
+                    // Retrieve
+                    document.getElementById("carBrand-helper").innerHTML = sessionStorage.getItem("carBrand") + " is a Great Car!";
+                } else {
+                    document.getElementById("carBrand-helper").innerHTML = "Sorry, your browser does not support Web Storage...";
+                }
+            }
+
+        </script>
+
+</body>
+</html>

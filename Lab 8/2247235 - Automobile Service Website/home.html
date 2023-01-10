@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Blackwite Automobile Service</title>
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/style.css">
+
+    <!-- FONT -->
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+
+    <!-- Angular JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
+
+
+</head>
+
+<body>
+
+    <!-- <header class="cmpny_name">
+        <nav>
+            <a href="#/"><img src="./images/favicon-32x32.png" alt="Error"></a>
+            <h2><a href="#/">Blackwite Automobile Service</a></h2>
+            
+            <div class="nav-link">
+                <ul>
+                    <li><a href="#/" class="others">HOME</a></li>
+                    <li><a href="#service" class="others">SERVICE</a></li>
+                    <li><a href="#about" class="others">ABOUT</a></li>
+                    <li><a href="#login" class="signin-btn">SIGN IN</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header> -->
+    
+    <div class="header">
+        <h1>Hellooo Buddy!</h1>
+        
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consequatur eius ratione accusantium vero cum mollitia assumenda delectus ut maxime aperiam aliquam nisi rerum quia, soluta possimus molestiae. Eveniet, eaque quod!
+        Mollitia iste est harum porro ratione quaerat impedit neque necessitatibus cum incidunt, enim rerum eaque sit ut facilis quisquam quia. Sint, vel itaque. Ad dicta, explicabo laboriosam voluptate quasi doloremque. Ad dicta, explicabo laboriosam voluptate quasi doloremque.  Ad dicta, explicabo laboriosam voluptate quasi doloremque. Consequatur eius ratione accusantium vero cum soluta possimus molestiae.</p>
+
+        <a href="#" class="readmore">Read More</a>
+
+        <a href="#service"><img id="photo" src="./images/undraw_vehicle_sale_a645.svg" alt="Error Image Loading..."></a>
+    </div>
+
+    <canvas id="myCanvas" width="400" height="125">
+        Your browser does not support the HTML5 canvas tag.
+    </canvas>
+    
+    <script>
+
+        window.onload = function () {
+            var c = document.getElementById("myCanvas");
+            var ctx = c.getContext("2d");
+            var img = document.getElementById("photo");
+            ctx.drawImage(img, 100, 1, 250, 125);
+        }
+    </script>
+
+
+</body>
+
+</html>

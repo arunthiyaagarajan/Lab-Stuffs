@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Form Validation</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <div class="form-content">
+
+        <h2>Form Validation</h2>
+
+        <form action="./form_success.html" autocomplete="off" name="myform">
+
+            <div class="mt">
+                <label for="fullname">Full Name<span class="imp">*</span></label>
+                <input type="text" name="fullname" id="fullname" title="Only Alpha-Characters Allowed" autofocus
+                    required>
+                <span class="helper" id="fullname-helper"></span>
+            </div>
+
+            <div class="mt">
+                <label for="mobile">Mobile No.<span class="imp">*</span></label>
+                <input type="tel" name="mobile" id="mobile" maxlength="10" title="Required Length: 10"
+                    pattern="[0-9]{10}" required>
+                <span class="helper" id="mobile-helper"></span>
+            </div>
+
+            <div class="mt">
+                <label for="email">Email<span class="imp">*</span></label>
+                <input type="email" name="email" id="email"
+                    pattern="[a-z0-9._%+-]+@[\Amca.]+[\Achristuniversity]+\.[\Ain]$"
+                    title="Format: your_name@mca.christuniversity.in"
+                    placeholder="eg: your_name@mca.christuniversity.in" required>
+                <span class="helper" id="email-helper"></span>
+            </div>
+
+            <div class="mt">
+                <label for="password">Password<span class="imp">*</span></label>
+                <input type="password" name="password" id="password" pattern="(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}"
+                    title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
+                    required>
+                <span class="helper" id="password-helper"></span>
+            </div>
+
+            <button class="submit" type="submit">Submit</button>
+
+        </form>
+    </div>
+
+    <script>
+        var fullname = document.getElementById('fullname');
+        var mobile = document.getElementById('mobile');
+        var email = document.getElementById('email');
+        var password = document.getElementById('password');
+
+        var fullnameHelp = document.getElementById('fullname-helper');
+        var mobileHelp = document.getElementById('mobile-helper');
+        var emailHelp = document.getElementById('email-helper');
+        var passwordHelp = document.getElementById('passwoper');
+
+        fullname.oninput = function () {
+            var spl = /^[!@#$%^&*()~`\_\-\+\={}\[\]|\\;:'",./<>?]/g
+            var letters = /[0-9]/g
+            if (fullname.value.match(letters) || fullname.value.match(spl)) {
+                nameLen = fullname.value.length
+                fullname.value = fullname.value.slice(0, nameLen - 1)
+            }
+
+            var msg = ""
+            if (fullname.value.length < 2)
+                msg += "Min. 2 Characters Required!"
+            fullnameHelp.innerHTML = msg
+
+            if (fullname.value.length >= 2) {
+                fullname.style.outlineColor = "var(--success)"
+                fullname.style.border = "1px solid var(--success)"
+                return
+            }
+            fullname.style.outlineColor = "var(--danger)"
+            fullname.style.border = "1px solid var(--danger)"
+        }
+    </script>
+
+</body>
+
+</html>
